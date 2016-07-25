@@ -11,7 +11,7 @@
       	<p><span class="label">Name:</span> {{this.burger_name}}</p>
       	<!-- <p><span class="label">Author:</span> {{this.author}}</p> -->
 <!-- want a put here, not delete -->
-      	<form action="/delete?_method=DELETE" method="POST">
+      	<form action="/update/{{this.id}}?method=PUT" method="POST">
         	<input type="hidden" name="id" value="{{this.id}}">
         	<button type="submit">Devour!</button>
       	</form>

@@ -14,8 +14,8 @@ var orm = {
     	});
     }
 
-    insertOne: function()
-    updateOne: function()
+    // insertOne: function()
+    // updateOne: function()
 };
 
 module.exports = orm;

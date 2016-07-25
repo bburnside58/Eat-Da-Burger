@@ -10,16 +10,22 @@ var bodyParser = require('body-parser');
 
 var callOrmFunctions = require('../models/burger.js');
 //burgers.js
+var orm = require('../config/orm.js');
 
 
 
-module.exports = function(app){
+
+var routes = function(app){
 	app.get('/', function(req, res) {
-    //connection.query('SELECT * FROM quotes;', function(err, data) {
-        //if (err) throw err;
-        res.render('index', {
-            burgers: data
-        });
+    	// orm.selectAll();
+    	orm.selectAll('burgers', 'devoured', 'true').then(function(data) {
+			console.log(data);
+			console.log("Hello")
+			res.render('index', {
+	            burgers: data
+	        });
+		});
     });
-//});
 };
+
+module.exports = routes;

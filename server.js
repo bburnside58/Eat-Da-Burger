@@ -3,7 +3,7 @@ var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
 var app = express();
 
-var PORT = 8080;
+var PORT = process.env.PORT || 8080;
 
 // BodyParser makes it easy for our server to interpret data sent to it.
 // The code below is pretty standard.
@@ -29,7 +29,7 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 
 
-require('./controllers/burgers_controller.js')(app); 
+var routes = require('./controllers/burgers_controller.js')(app); 
 
 
 app.listen(PORT, function() {
